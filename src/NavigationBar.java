@@ -50,7 +50,25 @@ public class NavigationBar extends JPanel
 		mainPanel.add(balLabel);
 		
 		
-		//
+		//refill button
+		JButton refillButton = new JButton("Refill");
+		refillButton.setFocusPainted(false);
+		refillButton.setContentAreaFilled(false);
+		refillButton.setBorder(new LineBorder(darkRed, 2, false));
+		refillButton.setFont(new Font("monospaced", Font.PLAIN, 14));
+		refillButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				currentFrame.dispose();
+				Refill frame = new Refill(model);
+			}
+		});
+		mainPanel.add(refillButton);
+		
+		
+		//order button
+		JButton orderButton = new JButton();
 		
 		
 		add(mainPanel);
