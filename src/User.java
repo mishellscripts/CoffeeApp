@@ -34,5 +34,10 @@ public class User {
 		return password.equals(pass);
 	}
 	
-	
+	public String displayBalance()
+	{
+		String addZero = balance + "0";
+		int decimalLoc = addZero.indexOf(".");
+		return ("$" + addZero.substring(0, decimalLoc + 3));
+	}
 }

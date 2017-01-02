@@ -9,5 +9,14 @@ public class CoffeeDemo {
 		//comment here test
 		// TEST SAD    
 		//TEST SADDDDDD DUITTYYY
+		
+		
+		
+		double num = 1.1;
+		String check = num + "0";
+		int decimalLoc = check.indexOf(".");
+		String result = "$" + check.substring(0, decimalLoc + 3);
+		
+		System.out.println(result);
 	}
 }

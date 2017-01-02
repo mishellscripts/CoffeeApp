@@ -14,13 +14,27 @@ public class NavigationBar extends JPanel
 	
 	public NavigationBar(CoffeeModel model)
 	{	
-		setLayout(new GridLayout(0, 1));
+//		setLayout(new GridLayout(0, 1));
 		setBorder(new LineBorder(darkRed, 3, false));
+		FlowLayout layout = (FlowLayout) this.getLayout();
+		layout.setHgap(-30);
+		
 		//logo
+		JPanel logoPanel = new JPanel();
+		Logo logo = new Logo(65, 65);
+		JButton logoButton = new JButton(logo);
+		logoButton.setFocusPainted(false);
+		logoButton.setContentAreaFilled(false);
+		logoButton.setBorderPainted(false);
+		logoPanel.add(logoButton);
+		add(logoPanel);
 		
 		
-		add(new JTextArea("DUITTY"));
+		//button options
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.setLayout(new GridLayout(0, 1));
+		
 	
-//		setSize(100, 700);
+		setSize(100, 700);
 	}
 }
