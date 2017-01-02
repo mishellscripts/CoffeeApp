@@ -61,11 +61,11 @@ public class NavigationBar extends JPanel
 			public void actionPerformed(ActionEvent e) 
 			{
 				currentFrame.dispose();
-				//				Refill frame = new Refill(model);
+				Refill frame = new Refill(model);
 			}
 		});
 		mainPanel.add(refillButton);
-//		mainPanel.add(new JLabel("\n"));
+		//		mainPanel.add(new JLabel("\n"));
 
 
 		//order button
@@ -83,8 +83,8 @@ public class NavigationBar extends JPanel
 			}
 		});
 		mainPanel.add(orderButton);
-		
-		
+
+
 		//favorites button
 		JButton favButton = new JButton("Favorites");
 		favButton.setFocusPainted(false);
@@ -100,8 +100,8 @@ public class NavigationBar extends JPanel
 			}
 		});
 		mainPanel.add(favButton);
-		
-		
+
+
 		//history button
 		JButton histButton = new JButton("History");
 		histButton.setFocusPainted(false);
@@ -117,8 +117,8 @@ public class NavigationBar extends JPanel
 			}
 		});
 		mainPanel.add(histButton);
-		
-		
+
+
 		//settings button
 		JButton setButton = new JButton("Settings");
 		setButton.setFocusPainted(false);
@@ -134,8 +134,8 @@ public class NavigationBar extends JPanel
 			}
 		});
 		mainPanel.add(setButton);
-		
-		
+
+
 		//sign out button
 		JButton signOutButton = new JButton("Sign Out");
 		signOutButton.setFocusPainted(false);
