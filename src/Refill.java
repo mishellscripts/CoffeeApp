@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class Refill extends JFrame {
 
 	//decorations instance variables
-	Font fontB = new Font("plain17", Font.BOLD, 24);
+	Font fontB = new Font("serif", Font.BOLD, 24);
 	Font font = new Font("plain17", Font.PLAIN, 16);
 	Color lightTan = new Color(214, 174, 126);
 	Color darkRed = new Color(124, 28, 30);
@@ -54,7 +54,24 @@ public class Refill extends JFrame {
 		arrow.setFont(new Font("monospaced", Font.PLAIN, 14));
 		arrowPanel.setLayout(new BorderLayout());
 		arrowPanel.add(arrow, BorderLayout.WEST);
-
+		
+		
+//		arrowPanel.add(mainPanel, BorderLayout.CENTER);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.weightx = 0.2;
+		c.weighty = 1;
+		c.ipady = 700;
+		add(nav, c);
+		
+		c.gridx = 1;
+		c.gridy = 0;
+		c.weightx = 0.0;
+		c.weighty = 1;
+		add(arrowPanel, c);
+		
 		
 		JPanel mainPanel = new JPanel();
 //		JTextArea text = new JTextArea("test");
@@ -65,40 +82,13 @@ public class Refill extends JFrame {
 		JLabel balLabel = new JLabel(" " + balance);
 		balLabel.setFont(fontB);
 		mainPanel.add(balLabel);
-		arrowPanel.add(mainPanel, BorderLayout.CENTER);
 		
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = 0;
-		c.gridy = 0;
-		c.weightx = 0.2;
-		c.weighty = 1;
-		c.ipady = 700;
 		
-		add(nav, c);
-		
-		c.gridx = 1;
+		c.gridx = 2;
 		c.gridy = 0;
 		c.weightx = 1;
 		c.weighty = 1;
-		
-		
-		add(arrowPanel, c);
-
-
-		//logo
-		//		JPanel logoPanel = new JPanel() {
-		//			public void paintComponent(Graphics g) {
-		//				super.paintComponent(g);
-		//				Graphics2D g2 = (Graphics2D) g;
-		//				Logo logo = new Logo();
-		//				logo.draw(g2);
-		//			}
-		//		};
-		//		logoPanel.setSize(new Dimension(200, 200));
-		//		JTextArea space = new JTextArea("\n\n\n\n\n\n\n\n\n\n\n");
-		//		space.setEditable(false);
-		//		logoPanel.add(space);
-		//		add(logoPanel);
+		add(mainPanel, c);
 
 
 

@@ -6,8 +6,5 @@ public class CoffeeDemo {
 		model.signUp("Duitty", "duitty", "1");
 		model.signIn("duitty", "1");
 		MainMenu test = new MainMenu(model);
-		
-		//test
-		//sad
 	}
 }

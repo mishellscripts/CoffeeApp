@@ -55,12 +55,8 @@ public class MainMenu extends JFrame {
 		arrowPanel.setLayout(new BorderLayout());
 		arrowPanel.add(arrow, BorderLayout.WEST);
 
-		
-		JPanel mainPanel = new JPanel();
-		JTextArea text = new JTextArea("test");
-		text.setOpaque(false);
-		mainPanel.add(text);
-		arrowPanel.add(text, BorderLayout.CENTER);
+
+//		arrowPanel.add(text, BorderLayout.CENTER);
 		
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
@@ -68,16 +64,27 @@ public class MainMenu extends JFrame {
 		c.weightx = 0.2;
 		c.weighty = 1;
 		c.ipady = 700;
-		
 		add(nav, c);
 		
 		c.gridx = 1;
 		c.gridy = 0;
+		c.weightx = 0.0;
+		c.weighty = 1;
+		add(arrowPanel, c);
+		
+		
+		JPanel mainPanel = new JPanel();
+		JTextArea text = new JTextArea("test");
+		text.setOpaque(false);
+		text.setFont(fontB);
+		text.setEditable(false);
+		mainPanel.add(text);
+		
+		c.gridx = 2;
+		c.gridy = 0;
 		c.weightx = 1;
 		c.weighty = 1;
-		
-		
-		add(arrowPanel, c);
+		add(mainPanel, c);
 
 
 		//logo
