@@ -16,9 +16,11 @@ public class MainMenu extends JFrame {
 	public MainMenu(CoffeeModel model)
 	{	
 		NavigationBar nav = new NavigationBar(model);
-		GridLayout layout = new GridLayout(1, 2);
-//		layout.setHgap(-275);
+		//GridLayout layout = new GridLayout(1, 2);
+		GridBagLayout layout = new GridBagLayout();
 		setLayout(layout);
+		GridBagConstraints c = new GridBagConstraints();
+//		layout.setHgap(-275);
 
 		JPanel arrowPanel = new JPanel();
 		JButton arrow = new JButton("<<");
@@ -34,7 +36,15 @@ public class MainMenu extends JFrame {
 				else if (arrow.getText().equals(">>"))
 				{
 					arrow.setText("<<");
-					add(nav, 1, 0);
+//					add(nav, 1, 0);
+					c.fill = GridBagConstraints.HORIZONTAL;
+					c.gridx = 0;
+					c.gridy = 0;
+					c.weightx = 0.2;
+					c.weighty = 1;
+					c.ipady = 700;
+					
+					add(nav, c);
 				}
 			}
 		});
@@ -52,9 +62,22 @@ public class MainMenu extends JFrame {
 		mainPanel.add(text);
 		arrowPanel.add(text, BorderLayout.CENTER);
 		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.weightx = 0.2;
+		c.weighty = 1;
+		c.ipady = 700;
 		
-		add(nav);
-		add(arrowPanel);
+		add(nav, c);
+		
+		c.gridx = 1;
+		c.gridy = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		
+		
+		add(arrowPanel, c);
 
 
 		//logo
