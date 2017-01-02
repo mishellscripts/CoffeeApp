@@ -15,7 +15,7 @@ public class MainMenu extends JFrame {
 	
 	public MainMenu(CoffeeModel model)
 	{	
-		NavigationBar nav = new NavigationBar(model);
+		NavigationBar nav = new NavigationBar(model, this);
 		//GridLayout layout = new GridLayout(1, 2);
 		GridBagLayout layout = new GridBagLayout();
 		setLayout(layout);

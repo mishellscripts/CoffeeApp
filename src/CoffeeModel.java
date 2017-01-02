@@ -41,6 +41,10 @@ public class CoffeeModel {
 		return true;
 	}
 	
+	public User getCurrentUser()
+	{
+		return currentUser;
+	}
 	
 	
 
