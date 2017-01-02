@@ -14,28 +14,43 @@ import java.awt.geom.Ellipse2D;
 public class SignIn extends JFrame {
 
 	//decorations instance variables
-	Font fontB = new Font("plain17", Font.BOLD, 24);
-	Font font = new Font("plain17", Font.PLAIN, 16);
-	Color darkBlue = new Color(62, 89, 130);	
+	Font fontB = new Font("plain", Font.BOLD, 24);
+	Font font = new Font("plain", Font.PLAIN, 16);
+	Color brownTan = new Color(214, 152, 94);
+	Color pinkTan = new Color(214, 132, 87);
+	Color lightTan = new Color(214, 174, 126);
+	Color darkRed = new Color(124, 28, 30);
 
 	public SignIn(CoffeeModel model)
 	{	
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
+		//		setLayout(new GridLayout(0, 1));
 
 
 		//logo
-		JPanel logoPanel = new JPanel() {
-			public void paintComponent(Graphics g) {
-				super.paintComponent(g);
-				Graphics2D g2 = (Graphics2D) g;
-				Logo logo = new Logo();
-				logo.draw(g2);
-			}
-		};
-		logoPanel.setSize(new Dimension(200, 200));
-		JTextArea space = new JTextArea("\n\n\n\n\n\n\n\n\n\n\n");
-		space.setEditable(false);
-		logoPanel.add(space);
+		//		JPanel logoPanel = new JPanel() {
+		//			public void paintComponent(Graphics g) {
+		//				super.paintComponent(g);
+		//				Graphics2D g2 = (Graphics2D) g;
+		//				Logo logo = new Logo();
+		//				logo.draw(g2);
+		//			}
+		//		};
+		//		logoPanel.setSize(new Dimension(200, 200));
+		//		JTextArea space = new JTextArea("\n\n\n\n\n\n\n\n\n\n\n");
+		//		space.setEditable(false);
+		//		logoPanel.add(space);
+		JPanel logoPanel = new JPanel();
+		Logo logo = new Logo(160, 160);
+		JButton logoButton = new JButton(logo);
+		logoButton.setFocusPainted(false);
+		logoButton.setContentAreaFilled(false);
+		logoButton.setBorderPainted(false);
+		logoPanel.add(logoButton);
+
+		add(new JLabel("\n"));
+		add(new JLabel("\n"));
+		add(new JLabel("\n"));
 		add(logoPanel);
 
 
@@ -43,12 +58,17 @@ public class SignIn extends JFrame {
 		JPanel signInPanel = new JPanel();
 		JLabel signInLabel = new JLabel("Sign In");
 		signInLabel.setFont(fontB);
-		signInLabel.setForeground(darkBlue);
+		signInLabel.setForeground(darkRed);
 		JTextField signInID = new JTextField("Enter your ID");
+		signInID.setBorder(new LineBorder(darkRed));
 		signInID.setFont(font);
+		signInID.setForeground(darkRed);
 		signInID.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent event) {
-				signInID.setText("");
+				if (signInID.getText().equals("Enter your ID"))
+				{
+					signInID.setText("");
+				}
 			}
 			public void focusLost(FocusEvent event) {
 				if (signInID.getText().equals("")) {
@@ -56,9 +76,30 @@ public class SignIn extends JFrame {
 				} 
 			}
 		});	
-		JPasswordField signInPass = new JPasswordField(10);
+		JPasswordField signInPass = new JPasswordField("Enter your password", 20);
+		signInPass.setBorder(new LineBorder(darkRed));
 		signInPass.setFont(font);
-		signInPass.setForeground(darkBlue);
+		signInPass.setForeground(darkRed);
+		char defaultChar = signInPass.getEchoChar();
+		signInPass.setEchoChar((char) 0);
+		signInPass.addFocusListener(new FocusListener() {
+			public void focusGained(FocusEvent event) {
+				String pass = new String(signInPass.getPassword());
+				if (pass.equals("Enter your password"))
+				{
+					signInPass.setText("");
+					signInPass.setEchoChar(defaultChar);
+				}
+			}
+			public void focusLost(FocusEvent event) {
+				String pass = new String(signInPass.getPassword());
+				if (pass.equals("")) {
+					signInPass.setEchoChar((char) 0);
+					signInPass.setText("Enter your password");
+				}
+			}
+		});	
+		
 		JButton signInButton = new JButton("Confirm");
 		signInButton.addActionListener(new ActionListener()
 		{
@@ -74,26 +115,25 @@ public class SignIn extends JFrame {
 				else {
 					// sad display error for non-existent user
 				}
-			
+
 			}
 
 		});
-		signInButton.setForeground(darkBlue);
+		//		signInButton.setForeground(lightTan);
 		signInButton.setFocusPainted(false);
 		signInButton.setContentAreaFilled(false);
-		signInPanel.setLayout(new BoxLayout(signInPanel, BoxLayout.Y_AXIS));
+		signInButton.setBorder(new LineBorder(darkRed));
+
+
+		//		signInPanel.setLayout(new BoxLayout(signInPanel, BoxLayout.Y_AXIS));
+		signInPanel.setLayout(new GridLayout(0, 1));
 		signInPanel.add(signInLabel);
-		signInPanel.add(new JLabel("\n"));
 		signInPanel.add(new JLabel("ID"));
 		signInPanel.add(signInID);
-		signInPanel.add(new JLabel("\n"));
 		signInPanel.add(new JLabel("Password"));
 		signInPanel.add(signInPass);
 		signInPanel.add(new JLabel("\n"));
 		signInPanel.add(signInButton);
-		signInPanel.add(new JLabel("\n"));
-		signInPanel.add(new JLabel("\n"));
-		signInPanel.add(new JLabel("\n"));
 		signInPanel.add(new JLabel("\n"));
 
 
@@ -110,9 +150,11 @@ public class SignIn extends JFrame {
 			}
 
 		});
-		signUp.setForeground(darkBlue);
+		//		signUp.setForeground(lightTan);
 		signUp.setFocusPainted(false);
 		signUp.setContentAreaFilled(false);
+		signUp.setBorder(new LineBorder(darkRed));
+
 		signInPanel.add(signUp);
 		//		signInPanel.setAlignmentX(LEFT_ALIGNMENT);
 		Border b = new EmptyBorder(0, 0, 0, 0);
