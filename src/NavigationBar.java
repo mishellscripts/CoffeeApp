@@ -20,7 +20,7 @@ public class NavigationBar extends JPanel
 		currentFrame = frame;
 		setBorder(new LineBorder(darkRed, 3, false));
 		FlowLayout layout = (FlowLayout) this.getLayout();
-		layout.setHgap(-25);
+		layout.setHgap(-25); 
 
 		//main panel
 		JPanel mainPanel = new JPanel();

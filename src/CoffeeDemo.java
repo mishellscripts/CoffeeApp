@@ -8,5 +8,6 @@ public class CoffeeDemo {
 		MainMenu test = new MainMenu(model);
 		
 		//test
+		//sad
 	}
 }
