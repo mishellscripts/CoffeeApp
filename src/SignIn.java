@@ -53,7 +53,7 @@ public class SignIn extends JFrame {
 			public void focusLost(FocusEvent event) {
 				if (signInID.getText().equals("")) {
 					signInID.setText("Enter your ID");
-				}
+				} 
 			}
 		});	
 		JPasswordField signInPass = new JPasswordField(10);
