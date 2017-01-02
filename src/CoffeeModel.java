@@ -46,6 +46,11 @@ public class CoffeeModel {
 		return currentUser;
 	}
 	
+	public void signOut()
+	{
+		currentUser = null;
+	}
+	
 	
 
 } 
