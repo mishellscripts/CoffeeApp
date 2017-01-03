@@ -16,12 +16,11 @@ public class Refill extends JFrame {
 	public Refill(CoffeeModel model)
 	{	
 		NavigationBar nav = new NavigationBar(model, this);
-		//GridLayout layout = new GridLayout(1, 2);
 		GridBagLayout layout = new GridBagLayout();
 		setLayout(layout);
 		GridBagConstraints c = new GridBagConstraints();
-//		layout.setHgap(-275);
 
+		//arrow for navigation bar
 		JPanel arrowPanel = new JPanel();
 		JButton arrow = new JButton("<<");
 		arrow.addActionListener(new ActionListener()
@@ -36,14 +35,12 @@ public class Refill extends JFrame {
 				else if (arrow.getText().equals(">>"))
 				{
 					arrow.setText("<<");
-//					add(nav, 1, 0);
 					c.fill = GridBagConstraints.HORIZONTAL;
 					c.gridx = 0;
 					c.gridy = 0;
 					c.weightx = 0.2;
 					c.weighty = 1;
 					c.ipady = 700;
-					
 					add(nav, c);
 				}
 			}
@@ -56,8 +53,7 @@ public class Refill extends JFrame {
 		arrowPanel.add(arrow, BorderLayout.WEST);
 		
 		
-//		arrowPanel.add(mainPanel, BorderLayout.CENTER);
-		
+		//add navigation bar
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 0;
@@ -66,6 +62,8 @@ public class Refill extends JFrame {
 		c.ipady = 700;
 		add(nav, c);
 		
+		
+		//add arrow for the navigation bar
 		c.gridx = 1;
 		c.gridy = 0;
 		c.weightx = 0.0;
@@ -73,23 +71,24 @@ public class Refill extends JFrame {
 		add(arrowPanel, c);
 		
 		
+		//main panel
 		JPanel mainPanel = new JPanel();
-//		JTextArea text = new JTextArea("test");
-//		text.setOpaque(false);
-//		mainPanel.add(text);
-		//show user's current balance
+		//setLayout
+		
+		
+		//user's current balance
 		String balance = model.getCurrentUser().displayBalance();
 		JLabel balLabel = new JLabel(" " + balance);
 		balLabel.setFont(fontB);
 		mainPanel.add(balLabel);
 		
 		
+		//add main panel
 		c.gridx = 2;
 		c.gridy = 0;
 		c.weightx = 1;
 		c.weighty = 1;
 		add(mainPanel, c);
-
 
 
 		setSize(500, 700);

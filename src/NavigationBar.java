@@ -65,7 +65,6 @@ public class NavigationBar extends JPanel
 			}
 		});
 		mainPanel.add(refillButton);
-		//		mainPanel.add(new JLabel("\n"));
 
 
 		//order button
@@ -79,7 +78,7 @@ public class NavigationBar extends JPanel
 			public void actionPerformed(ActionEvent e) 
 			{
 				currentFrame.dispose();
-				//
+				Order frame = new Order(model);
 			}
 		});
 		mainPanel.add(orderButton);
