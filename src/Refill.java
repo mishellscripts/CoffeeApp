@@ -10,6 +10,10 @@ public class Refill extends JFrame {
 	//decorations instance variables
 	Font fontB = new Font("serif", Font.BOLD, 24);
 	Font font = new Font("plain17", Font.PLAIN, 16);
+	
+	Font balFont = new Font("serif", Font.BOLD, 50);
+//	Font refillFont = new Font("plain17", Font.PLAIN, 20);
+	
 	Color lightTan = new Color(214, 174, 126);
 	Color darkRed = new Color(124, 28, 30);
 	
@@ -84,18 +88,22 @@ public class Refill extends JFrame {
 		
 		//show user's current balance
 		String balance = model.getCurrentUser().displayBalance();
-		JLabel balLabel = new JLabel(" " + balance);
-		balLabel.setFont(fontB);
+		JLabel balLabel = new JLabel(balance);
+		balLabel.setFont(balFont);
 		balPanel.add(balLabel);
 		mainPanel.add(balPanel);
 		
 		JPanel optionPanel = new JPanel();
 		JButton refillButton = new JButton("Refill");
 		refillButton.setFont(font);
+		refillButton.setBackground(darkRed);
+		refillButton.setForeground(Color.WHITE);
+		refillButton.setBorder(BorderFactory.createCompoundBorder(
+	               BorderFactory.createLineBorder(darkRed, 1),
+	               BorderFactory.createEmptyBorder(4,10,4,10)));
 		refillButton.setFocusPainted(false);
-		refillButton.setContentAreaFilled(false);
-		refillButton.setMargin(new Insets(10,10,10,10));
-		refillButton.setBorder(new LineBorder(darkRed));
+//		refillButton.setContentAreaFilled(false);
+//		refillButton.setBorder(new LineBorder(darkRed));
 		
 		optionPanel.add(refillButton);
 		String[] refillAmounts = { "$5", "$10", "$25", "$50", "Custom" };
