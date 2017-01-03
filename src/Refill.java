@@ -77,11 +77,35 @@ public class Refill extends JFrame {
 		
 		
 		//user's current balance
+		mainPanel.setLayout(new GridLayout(7,1));
+		mainPanel.add(new JLabel("\n"));
+		
+		JPanel balPanel = new JPanel();
+		
+		//show user's current balance
 		String balance = model.getCurrentUser().displayBalance();
 		JLabel balLabel = new JLabel(" " + balance);
 		balLabel.setFont(fontB);
-		mainPanel.add(balLabel);
+		balPanel.add(balLabel);
+		mainPanel.add(balPanel);
 		
+		JPanel optionPanel = new JPanel();
+		JButton refillButton = new JButton("Refill");
+		refillButton.setFont(font);
+		refillButton.setFocusPainted(false);
+		refillButton.setContentAreaFilled(false);
+		refillButton.setMargin(new Insets(10,10,10,10));
+		refillButton.setBorder(new LineBorder(darkRed));
+		
+		optionPanel.add(refillButton);
+		String[] refillAmounts = { "$5", "$10", "$25", "$50", "Custom" };
+
+		//Create the combo box, select item at index 4.
+		//Indices start at 0, so 4 specifies the pig.
+		JComboBox refillList = new JComboBox(refillAmounts);
+		refillList.setFont(font);
+		optionPanel.add(refillList);
+		mainPanel.add(optionPanel);
 		
 		//add main panel
 		c.gridx = 2;
